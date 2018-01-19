@@ -7,21 +7,22 @@ defmodule HelloWorldTest do
 
 	test "greets the world" do
 		assert capture_io(fn ->
-			Hello.hello()
+			Hello.hello
 		end) =~ "Hello world!"
 	end
 
 	test "greets Joe" do
 		assert capture_io(fn ->
-			Hello.hello("Joe")
+			Hello.hello "Joe"
 		end) =~ "Hello Joe!"
 	end
 
 	test "greets Joe and Joni" do
 		func = fn ->
-			Hello.hello(["Joe", "Joni"])
+			Hello.hello ["Joe", "Joni"]
 		end
-		assert capture_io(func) =~ "Hello Joe!"
-		assert capture_io(func) =~ "Hello Joni!"
+		capturedMsg = capture_io func
+		assert capturedMsg =~ "Hello Joe!"
+		assert capturedMsg =~ "Hello Joni!"
 	end
 end

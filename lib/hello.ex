@@ -10,7 +10,7 @@ defmodule Hello do
 	iex > Hello.hello
 	"""
 	def hello do
-		hello("world")
+		hello "world"
 	end
 
 	@doc """
@@ -28,8 +28,8 @@ defmodule Hello do
 	iex > Hello.hello [ "Joe", "Joni" ]
 	"""
 	def hello([ h | t ]) do
-		hello(h)
-		hello(t)
+		hello h
+		hello t
 	end
 
 	@doc """
